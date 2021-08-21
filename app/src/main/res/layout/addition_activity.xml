@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/timerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
+        android:text="@string/_0s"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/expressionView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#050505"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:id="@+id/optionGrid"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:columnCount="2"
+        android:rowCount="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <Button
+            android:id="@+id/option_button_0"
+            android:layout_width="165dp"
+            android:layout_height="165dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:background="@drawable/additon_button_ripple"
+            android:contentDescription="@string/option_button"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:tag="0"
+            android:text=""
+            android:textSize="50sp" />
+
+        <Button
+            android:id="@+id/option_button_1"
+            android:layout_width="165dp"
+            android:layout_height="165dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:background="@drawable/additon_button_ripple"
+            android:contentDescription="@string/option_button"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:tag="3"
+            android:text=""
+            android:textSize="50sp" />
+
+        <Button
+            android:id="@+id/option_button_2"
+            android:layout_width="165dp"
+            android:layout_height="165dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:background="@drawable/additon_button_ripple"
+            android:contentDescription="@string/option_button"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:tag="1"
+            android:text=""
+            android:textSize="50sp" />
+
+        <Button
+            android:id="@+id/option_button_3"
+            android:layout_width="165dp"
+            android:layout_height="165dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:background="@drawable/additon_button_ripple"
+            android:contentDescription="@string/option_button"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:tag="2"
+            android:text=""
+            android:textSize="50sp" />
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/answerPrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="70dp"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/optionGrid" />
+
+    <Button
+        android:id="@+id/playAgainButton"
+        android:layout_width="200dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="70dp"
+        android:height="180dp"
+        android:text="@string/play_again"
+        android:textSize="25sp"
+        android:visibility="gone"
+        android:background="@drawable/play_again_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/optionGrid"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <GridLayout
+        android:id="@+id/scoreGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        app:columnCount="5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rowCount="1">
+
+        <ImageView
+            android:id="@+id/star0"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleX="0"
+            android:scaleY="0"
+            app:layout_column="0"
+            app:layout_row="0"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:id="@+id/star1"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleX="0"
+            android:scaleY="0"
+            app:layout_column="1"
+            app:layout_row="0"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:id="@+id/star2"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleX="0"
+            android:scaleY="0"
+            app:layout_column="2"
+            app:layout_row="0"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:id="@+id/star3"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleX="0"
+            android:scaleY="0"
+            app:layout_column="3"
+            app:layout_row="0"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:id="@+id/star4"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleX="0"
+            android:scaleY="0"
+            app:layout_column="4"
+            app:layout_row="0"
+            app:srcCompat="@drawable/star" />
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/design_default_color_on_primary">
+    <item>
+        <shape android:shape="rectangle"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+
+            <padding android:bottom="4dp"
+                android:top="4dp"
+                android:left="16dp"
+                android:right="16dp"/>
+
+            <solid android:color="@color/picker_red"/>
+
+            <stroke android:color="@color/white"
+                android:width="4dp"/>
+
+            <corners android:radius="0dp"/>
+        </shape>
+    </item>
+</ripple>
