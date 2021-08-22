@@ -1,5 +1,6 @@
 package com.joeadamson.topofthetables.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -49,8 +50,22 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_USER_TABLE);
+        ContentValues contentValues = new ContentValues();
+
+        // Initialize the single row in the table.
+        contentValues.put(COLUMN_MULTI, 0);
+        contentValues.put(COLUMN_DIV, 0);
+        contentValues.put(COLUMN_ADD, 0);
+        contentValues.put(COLUMN_SUB, 0);
+
+        db.insert(USER_TABLE, null, contentValues);
     }
 
+    /**
+     * @param db SQLite database obj
+     * @param oldVersion
+     * @param newVersion
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE);
