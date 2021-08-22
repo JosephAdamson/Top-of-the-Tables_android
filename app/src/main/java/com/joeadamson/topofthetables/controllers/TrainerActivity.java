@@ -1,4 +1,4 @@
-package com.joeadamson.topofthetables;
+package com.joeadamson.topofthetables.controllers;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import android.os.CountDownTimer;
 
+import com.joeadamson.topofthetables.R;
 import com.joeadamson.topofthetables.trainers.TrainerAddition;
 import com.joeadamson.topofthetables.trainers.TrainerDivision;
 import com.joeadamson.topofthetables.trainers.TrainerMultiplication;
