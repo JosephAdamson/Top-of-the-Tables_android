@@ -4,6 +4,8 @@ import java.util.Locale;
 
 /**
  * Computes division problems for user to solve.
+ *
+ * @author Joseph Adamson
  */
 public class TrainerDivision extends TrainerModel {
 

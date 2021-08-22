@@ -4,6 +4,8 @@ import java.util.Locale;
 
 /**
  * Computes subtraction problems for user to solve.
+ *
+ * @author Joseph Adamson
  */
 public class TrainerSubtraction extends TrainerModel {
 

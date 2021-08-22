@@ -4,6 +4,8 @@ import java.util.Locale;
 
 /**
  * Computes multiplication problems for user to solve.
+ *
+ * @author Joseph Adamson
  */
 public class TrainerMultiplication extends TrainerModel {
 

@@ -6,6 +6,8 @@ import java.util.Random;
 
 /**
  * Data model for all trainers used in the app.
+ *
+ * @author Joseph Adamson
  */
 public abstract class TrainerModel {
 
@@ -30,7 +32,7 @@ public abstract class TrainerModel {
     }
 
     /**
-     * Generates expression, constants and answer and loads them
+     * Generates constants and answer for the expression and loads them
      * into options array. This operation will be the same across all
      * sub-classes.
      */
@@ -53,15 +55,15 @@ public abstract class TrainerModel {
     }
 
     /**
-     * Implemented by sub classes; instantiates operandA and operandB
+     * Implemented by sub-classes; instantiates operandA and operandB
      * and solves with stated operator to get answer.
      */
     protected abstract void generateExpression();
 
     /**
-     * To be overridden by sub classes with appropriate expression.
+     * To be overridden by sub-classes with appropriate expression.
      *
-     * @return "operandA operator operandB"
+     * @return "A operator B"
      */
     public String getExpression() {
         return "";

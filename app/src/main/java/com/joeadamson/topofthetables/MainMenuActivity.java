@@ -9,6 +9,11 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 
+/**
+ * Landing page for application.
+ *
+ * @author Joseph Adamson
+ */
 public class MainMenuActivity extends AppCompatActivity {
 
     ArrayList<Button> modeButtons = new ArrayList<>();

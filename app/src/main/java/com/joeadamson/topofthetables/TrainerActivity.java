@@ -21,8 +21,10 @@ import com.joeadamson.topofthetables.trainers.TrainerModel;
 import com.joeadamson.topofthetables.trainers.TrainerSubtraction;
 
 /**
- * Main game session (multilication/divison/addtion/subtraction)
+ * Main game session (multiplication/division/addition/subtraction)
  * for "Top of the Tables" app.
+ *
+ * @author Joseph Adamson
  */
 public class TrainerActivity extends AppCompatActivity {
 
@@ -55,6 +57,8 @@ public class TrainerActivity extends AppCompatActivity {
     GridLayout scoreGrid;
 
     // Data structure and member used to manage score view.
+    // Point threshold map (key=score, val=starColumn) dictates how
+    // many stars are awarded according to the score.
     int starColumn = -1;
     private static final HashMap<Integer, String> THRESHOLDS;
     static {

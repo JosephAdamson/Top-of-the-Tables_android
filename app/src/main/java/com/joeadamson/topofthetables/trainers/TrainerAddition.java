@@ -4,6 +4,8 @@ import java.util.Locale;
 
 /**
  * Computes addition problems for user to solve.
+ *
+ * @author Joseph Adamson
  */
 public class TrainerAddition extends TrainerModel {
 
