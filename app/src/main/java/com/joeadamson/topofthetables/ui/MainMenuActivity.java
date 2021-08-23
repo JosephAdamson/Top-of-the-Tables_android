@@ -26,9 +26,9 @@ import java.util.List;
  */
 public class MainMenuActivity extends AppCompatActivity {
 
-    ArrayList<Button> modeButtons = new ArrayList<>();
+    private ArrayList<Button> modeButtons = new ArrayList<>();
 
-    class ModeClicker implements View.OnClickListener {
+    private class ModeClicker implements View.OnClickListener {
 
         @Override
         public void onClick(View view) {

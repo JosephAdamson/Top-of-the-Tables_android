@@ -29,15 +29,16 @@ import com.joeadamson.topofthetables.session.TrainerSubtraction;
  */
 public class TrainerActivity extends AppCompatActivity {
 
-    GridLayout optionGrid;
-    TextView expressionView;
-    TextView timerView;
-    TextView answerPrompt;
-    Button playAgain;
-    TrainerModel trainer;
-    ArrayList<Button> optionButtons = new ArrayList<>();
-    int gameMode;
-    CountDownTimer gameTimer = new CountDownTimer(60000, 1000) {
+    private GridLayout optionGrid;
+    private TextView expressionView;
+    private TextView timerView;
+    private TextView answerPrompt;
+    private Button playAgain;
+    private TrainerModel trainer;
+    private ArrayList<Button> optionButtons = new ArrayList<>();
+    private int gameMode;
+    private CountDownTimer gameTimer =
+            new CountDownTimer(60000, 1000) {
 
         @Override
         public void onTick(long millisecondsUntilDone) {
@@ -53,8 +54,6 @@ public class TrainerActivity extends AppCompatActivity {
             }
             answerPrompt.setVisibility(View.INVISIBLE);
             playAgain.setVisibility(View.VISIBLE);
-
-
         }
     };
 
@@ -63,7 +62,7 @@ public class TrainerActivity extends AppCompatActivity {
     // Data structure and member used to manage score view.
     // Point threshold map (key=score, val=starColumn) dictates how
     // many stars are awarded according to the score.
-    int starColumn = -1;
+    private int starColumn = -1;
     private static final HashMap<Integer, String> THRESHOLDS;
     static {
         THRESHOLDS = new HashMap<>();
@@ -136,7 +135,7 @@ public class TrainerActivity extends AppCompatActivity {
      * Change the numbers displayed on the buttons in
      * the options grid.
      */
-    public void setOptionsGrid() {
+    private void setOptionsGrid() {
         for (int i = 0; i < 4; i++) {
             TextView button = (TextView) optionGrid.getChildAt(i);
             button.setText(String.format(Locale.getDefault(),
@@ -147,14 +146,14 @@ public class TrainerActivity extends AppCompatActivity {
     /**
      * Refresh expression view.
      */
-    public void setExpression() {
+    private  void setExpression() {
         expressionView.setText(trainer.getExpression());
     }
 
     /**
      * Dynamically refresh scoreGrid with simple animations.
      */
-    public void refreshScoreGrid() {
+    private  void refreshScoreGrid() {
 
         int currentScore = trainer.getScore();
 
@@ -186,7 +185,7 @@ public class TrainerActivity extends AppCompatActivity {
      * @param gridIndex child of the gridlayout
      * @param scale factor used to shrink/enlarge the star.
      */
-    public void animateStar(int gridIndex, float scale) {
+    private  void animateStar(int gridIndex, float scale) {
         scoreGrid.getChildAt(gridIndex).animate()
                 .scaleX(scale)
                 .scaleY(scale);
@@ -241,5 +240,11 @@ public class TrainerActivity extends AppCompatActivity {
         setOptionsGrid();
         setExpression();
         gameTimer.start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        gameTimer.cancel();
     }
 }
