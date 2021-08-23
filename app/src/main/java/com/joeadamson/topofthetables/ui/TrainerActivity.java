@@ -2,14 +2,11 @@ package com.joeadamson.topofthetables.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.GridLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -224,7 +221,7 @@ public class TrainerActivity extends AppCompatActivity {
 
         expressionView = (TextView) findViewById(R.id.expressionView);
         timerView = (TextView) findViewById(R.id.timerView);
-        scoreGrid = (GridLayout) findViewById(R.id.personalBest);
+        scoreGrid = (GridLayout) findViewById(R.id.scoreGrid);
         optionGrid = (GridLayout) findViewById(R.id.optionGrid);
         answerPrompt = (TextView) findViewById(R.id.answerPrompt);
 
