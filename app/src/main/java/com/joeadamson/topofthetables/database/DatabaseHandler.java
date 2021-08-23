@@ -7,9 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * Handler for the app's mini data base, which consists of a
- * one row table holding personal best scores for each activity
- * (multiplication/division/addition/subtraction).
+ * Handler for the app's local mini data base, which consists of a one row table holding
+ * personal best scores for each activity (multiplication/division/addition/subtraction).
  *
  * @author Joseph Adamson
  */
@@ -62,6 +61,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
+     * Overridden to upgrade database if needed.
+     *
      * @param db SQLite database obj
      * @param oldVersion
      * @param newVersion

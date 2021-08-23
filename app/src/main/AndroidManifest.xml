@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TopOfTheTables">
         <activity
-            android:name="com.joeadamson.topofthetables.controllers.MainMenuActivity"
+            android:name="com.joeadamson.topofthetables.ui.MainMenuActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.joeadamson.topofthetables.controllers.TrainerActivity" />
+        <activity android:name="com.joeadamson.topofthetables.ui.TrainerActivity" />
     </application>
 
 </manifest>

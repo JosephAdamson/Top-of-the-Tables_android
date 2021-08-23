@@ -13,4 +13,5 @@
     <string name="addition">Addition</string>
     <string name="subtraction">Subtraction</string>
     <string name="main_menu">Main Menu</string>
+    <string name="congratulations_you_have_a_new_personal_best">Congratulations, you have a new personal best!</string>
 </resources>

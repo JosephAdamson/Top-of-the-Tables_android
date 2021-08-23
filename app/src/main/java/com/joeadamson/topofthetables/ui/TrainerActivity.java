@@ -1,12 +1,15 @@
-package com.joeadamson.topofthetables.controllers;
+package com.joeadamson.topofthetables.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -15,11 +18,11 @@ import java.util.Locale;
 import android.os.CountDownTimer;
 
 import com.joeadamson.topofthetables.R;
-import com.joeadamson.topofthetables.trainers.TrainerAddition;
-import com.joeadamson.topofthetables.trainers.TrainerDivision;
-import com.joeadamson.topofthetables.trainers.TrainerMultiplication;
-import com.joeadamson.topofthetables.trainers.TrainerModel;
-import com.joeadamson.topofthetables.trainers.TrainerSubtraction;
+import com.joeadamson.topofthetables.session.TrainerAddition;
+import com.joeadamson.topofthetables.session.TrainerDivision;
+import com.joeadamson.topofthetables.session.TrainerMultiplication;
+import com.joeadamson.topofthetables.session.TrainerModel;
+import com.joeadamson.topofthetables.session.TrainerSubtraction;
 
 /**
  * Main game session (multiplication/division/addition/subtraction)
@@ -36,6 +39,7 @@ public class TrainerActivity extends AppCompatActivity {
     Button playAgain;
     TrainerModel trainer;
     ArrayList<Button> optionButtons = new ArrayList<>();
+    int gameMode;
     CountDownTimer gameTimer = new CountDownTimer(60000, 1000) {
 
         @Override
@@ -52,6 +56,8 @@ public class TrainerActivity extends AppCompatActivity {
             }
             answerPrompt.setVisibility(View.INVISIBLE);
             playAgain.setVisibility(View.VISIBLE);
+
+
         }
     };
 
@@ -76,7 +82,7 @@ public class TrainerActivity extends AppCompatActivity {
      * On-click listener for the four option buttons contained
      * in optionGrid.
      */
-    class OptionClicker implements View.OnClickListener {
+    private class OptionClicker implements View.OnClickListener {
 
         @Override
         public void onClick(View view) {
@@ -106,7 +112,7 @@ public class TrainerActivity extends AppCompatActivity {
      * On-click listener for the "play again" button; resets game state
      * and timer and refreshes UI.
      */
-    class PlayAgainClicker implements View.OnClickListener {
+    private class PlayAgainClicker implements View.OnClickListener {
 
         @Override
         public void onClick(View view) {
@@ -194,7 +200,7 @@ public class TrainerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // determine game mode and set up activity accordingly.
-        int gameMode = getIntent().getIntExtra("MODE", -1);
+        gameMode = getIntent().getIntExtra("MODE", -1);
 
         switch (gameMode) {
             case 0: trainer = new TrainerMultiplication();
@@ -218,7 +224,7 @@ public class TrainerActivity extends AppCompatActivity {
 
         expressionView = (TextView) findViewById(R.id.expressionView);
         timerView = (TextView) findViewById(R.id.timerView);
-        scoreGrid = (GridLayout) findViewById(R.id.scoreGrid);
+        scoreGrid = (GridLayout) findViewById(R.id.personalBest);
         optionGrid = (GridLayout) findViewById(R.id.optionGrid);
         answerPrompt = (TextView) findViewById(R.id.answerPrompt);
 

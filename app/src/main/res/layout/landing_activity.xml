@@ -5,7 +5,7 @@
     android:id="@+id/parentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controllers.MainMenuActivity">
+    tools:context=".ui.MainMenuActivity">
 
     <TextView
         android:id="@+id/landingMessage"

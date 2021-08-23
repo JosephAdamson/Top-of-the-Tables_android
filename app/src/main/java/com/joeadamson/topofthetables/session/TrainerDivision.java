@@ -1,4 +1,4 @@
-package com.joeadamson.topofthetables.trainers;
+package com.joeadamson.topofthetables.session;
 
 import java.util.Locale;
 

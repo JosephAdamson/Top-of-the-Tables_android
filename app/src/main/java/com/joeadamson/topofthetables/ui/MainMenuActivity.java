@@ -1,4 +1,4 @@
-package com.joeadamson.topofthetables.controllers;
+package com.joeadamson.topofthetables.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
