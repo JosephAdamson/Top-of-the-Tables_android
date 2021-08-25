@@ -86,11 +86,27 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor =
                 db.rawQuery("SELECT * FROM " + USER_TABLE + ";", null);
 
+        cursor.moveToFirst();
         int pb = cursor.getInt(gameMode);
 
+        cursor.close();
         db.close();
 
         return pb;
+    }
+
+    /**
+     * Get personal bests for all activities.
+     *
+     * @return a cursor object containing the data for out single-row table.
+     */
+    public Cursor getPersonalBests() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor =
+                db.rawQuery("SELECT * FROM " + USER_TABLE + ";", null);
+
+        return cursor;
     }
 
     /**
@@ -106,14 +122,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         String column = modes[gameMode];
 
-        String updateStmt =
-                "UPDATE " + USER_TABLE +
-                        " SET " + column + " = " + starScore;
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(column, starScore);
 
-        Cursor cursor = db.rawQuery(updateStmt, null);
+        long success = db.update(USER_TABLE, contentValues,
+                null, null);
 
-        db.close();
-
-        return cursor.getInt(gameMode) == starScore;
+        return success > 0;
     }
 }

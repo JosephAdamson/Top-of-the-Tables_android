@@ -2,6 +2,7 @@ package com.joeadamson.topofthetables.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,7 @@ import java.util.Locale;
 import android.os.CountDownTimer;
 
 import com.joeadamson.topofthetables.R;
+import com.joeadamson.topofthetables.database.DatabaseHandler;
 import com.joeadamson.topofthetables.session.TrainerAddition;
 import com.joeadamson.topofthetables.session.TrainerDivision;
 import com.joeadamson.topofthetables.session.TrainerMultiplication;
@@ -35,10 +37,34 @@ public class TrainerActivity extends AppCompatActivity {
     private TextView answerPrompt;
     private Button playAgain;
     private TrainerModel trainer;
-    private ArrayList<Button> optionButtons = new ArrayList<>();
     private int gameMode;
-    private CountDownTimer gameTimer =
-            new CountDownTimer(60000, 1000) {
+    private final ArrayList<Button> optionButtons = new ArrayList<>();
+    private final GameTimer gameTimer = new GameTimer(60000, 1000);
+    private GridLayout scoreGrid;
+
+    // Data structure and member used to manage score view.
+    // Point threshold map (key=score, val=starColumn) dictates how
+    // many stars are awarded according to the score.
+    private int starColumn = -1;
+    private static final HashMap<Integer, String> THRESHOLDS;
+    static {
+        THRESHOLDS = new HashMap<>();
+        THRESHOLDS.put(0, "-1");
+        THRESHOLDS.put(5, "0");
+        THRESHOLDS.put(10, "1");
+        THRESHOLDS.put(15, "2");
+        THRESHOLDS.put(18, "3");
+        THRESHOLDS.put(24, "4");
+    }
+
+    /**
+     * Custom timer for a session.
+     */
+    private class GameTimer extends CountDownTimer {
+
+        public GameTimer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
 
         @Override
         public void onTick(long millisecondsUntilDone) {
@@ -52,26 +78,21 @@ public class TrainerActivity extends AppCompatActivity {
             for (Button button : optionButtons) {
                 button.setClickable(false);
             }
+
+            // Update mini database if user exceeds personal best for the game mode.
+            DatabaseHandler dbh = new DatabaseHandler(TrainerActivity.this);
+            int allTimePB = dbh.getPersonalBest(gameMode);
+            Log.i("Info", Integer.toString(allTimePB) + " "
+                    + Integer.toString(starColumn + 1));
+            if ((starColumn + 1) > allTimePB) {
+                boolean success = dbh.updatePB(gameMode, starColumn + 1);
+                Log.i("insert", Boolean.toString(success));
+            }
+            dbh.close();
+
             answerPrompt.setVisibility(View.INVISIBLE);
             playAgain.setVisibility(View.VISIBLE);
         }
-    };
-
-    GridLayout scoreGrid;
-
-    // Data structure and member used to manage score view.
-    // Point threshold map (key=score, val=starColumn) dictates how
-    // many stars are awarded according to the score.
-    private int starColumn = -1;
-    private static final HashMap<Integer, String> THRESHOLDS;
-    static {
-        THRESHOLDS = new HashMap<>();
-        THRESHOLDS.put(0, "-1");
-        THRESHOLDS.put(5, "0");
-        THRESHOLDS.put(8, "1");
-        THRESHOLDS.put(10, "2");
-        THRESHOLDS.put(12, "3");
-        THRESHOLDS.put(15, "4");
     }
 
     /**
@@ -240,11 +261,5 @@ public class TrainerActivity extends AppCompatActivity {
         setOptionsGrid();
         setExpression();
         gameTimer.start();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        gameTimer.cancel();
     }
 }
