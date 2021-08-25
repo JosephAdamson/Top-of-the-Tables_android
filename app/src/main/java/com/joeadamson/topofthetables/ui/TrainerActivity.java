@@ -82,8 +82,6 @@ public class TrainerActivity extends AppCompatActivity {
             // Update mini database if user exceeds personal best for the game mode.
             DatabaseHandler dbh = new DatabaseHandler(TrainerActivity.this);
             int allTimePB = dbh.getPersonalBest(gameMode);
-            Log.i("Info", Integer.toString(allTimePB) + " "
-                    + Integer.toString(starColumn + 1));
             if ((starColumn + 1) > allTimePB) {
                 boolean success = dbh.updatePB(gameMode, starColumn + 1);
                 Log.i("insert", Boolean.toString(success));
@@ -111,7 +109,6 @@ public class TrainerActivity extends AppCompatActivity {
             if (guess == trainer.getAnswer()) {
                 answerPrompt.setText(R.string.correct);
                 trainer.setScore(trainer.getScore() + 1);
-                Log.i("current score", Integer.toString(trainer.getScore()));
             } else {
                 answerPrompt.setText(R.string.wrong);
                 trainer.setScore(trainer.getScore() - 1);

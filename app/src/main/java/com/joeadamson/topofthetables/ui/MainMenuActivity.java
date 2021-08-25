@@ -69,7 +69,6 @@ public class MainMenuActivity extends AppCompatActivity {
                 viewHolder.personalBest = (GridLayout) convertView.findViewById(R.id.personalBest);
 
                 // set gridlayout according to current personal best for the activity.
-                Log.i("on item set", Integer.toString(getItem(position).bestScore));
                 for (int i = 0; i < getItem(position).bestScore; i++) {
                     ImageView child = (ImageView) viewHolder.personalBest.getChildAt(i);
                     child.setImageResource(R.drawable.star);
