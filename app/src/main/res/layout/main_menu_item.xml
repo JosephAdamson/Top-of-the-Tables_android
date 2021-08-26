@@ -9,12 +9,14 @@
         android:id="@+id/mode_button"
         android:layout_width="177dp"
         android:layout_height="59dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
         android:height="180dp"
         android:tag="1"
         android:text="@string/mode_button"
         android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@id/personalBest"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,41 +28,42 @@
         android:layout_marginEnd="30dp"
         app:columnCount="5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mode_button"
         app:layout_constraintTop_toTopOf="parent"
         app:rowCount="1">
 
         <ImageView
             android:id="@+id/star0"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             app:layout_column="0"
             app:layout_row="0" />
 
         <ImageView
             android:id="@+id/star1"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             app:layout_column="1"
             app:layout_row="0" />
 
         <ImageView
             android:id="@+id/star2"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             app:layout_column="2"
             app:layout_row="0" />
 
         <ImageView
             android:id="@+id/star3"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             app:layout_column="3"
             app:layout_row="0" />
 
         <ImageView
             android:id="@+id/star4"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             app:layout_column="4"
             app:layout_row="0" />
     </GridLayout>
