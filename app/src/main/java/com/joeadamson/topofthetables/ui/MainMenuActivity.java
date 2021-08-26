@@ -145,7 +145,7 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     /**
-     * Refresh activity in the back stack when back is pressed for
+     * Refresh activity in the activity stack when back is pressed for
      * the succeeding activity.
      */
     @Override
