@@ -164,14 +164,14 @@ public class TrainerActivity extends AppCompatActivity {
     /**
      * Refresh expression view.
      */
-    private  void setExpression() {
+    private void setExpression() {
         expressionView.setText(trainer.getExpression());
     }
 
     /**
      * Dynamically refresh scoreGrid with simple animations.
      */
-    private  void refreshScoreGrid() {
+    private void refreshScoreGrid() {
 
         int currentScore = trainer.getScore();
 
@@ -203,7 +203,7 @@ public class TrainerActivity extends AppCompatActivity {
      * @param gridIndex child of the gridlayout
      * @param scale factor used to shrink/enlarge the star.
      */
-    private  void animateStar(int gridIndex, float scale) {
+    private void animateStar(int gridIndex, float scale) {
         scoreGrid.getChildAt(gridIndex).animate()
                 .scaleX(scale)
                 .scaleY(scale);
