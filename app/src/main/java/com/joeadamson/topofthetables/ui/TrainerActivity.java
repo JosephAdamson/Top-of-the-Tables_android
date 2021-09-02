@@ -259,4 +259,25 @@ public class TrainerActivity extends AppCompatActivity {
         setExpression();
         gameTimer.start();
     }
+
+    /**
+     * Manage the life cycle of the trainer session, destroy
+     * it when the back button is pressed, getting rid of current score.
+     */
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        // executes onDestroy()
+        finish();
+    }
+
+    /**
+     * Stop the timer as soon as the user leaves the current session.
+     */
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        gameTimer.cancel();
+    }
 }
